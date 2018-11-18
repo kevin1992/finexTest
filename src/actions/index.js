@@ -129,9 +129,9 @@ export const _generateOrderList = (orders, type, state) => {
 
   let reduced = ordered.filter((o) => {
     if (type === 'bid') {
-      return o.price < _.first(state.asks).price;
+      return o.price > _.first(state.asks).price;
     }else{
-      return o.price > _.first(state.bids).price;
+      return o.price < _.first(state.bids).price;
     }
   });
 
