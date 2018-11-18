@@ -1,0 +1,24 @@
+.orderBookContainer__Container {
+  display: flex;
+  width: 80%;
+  align-self: center;
+  @media only screen and (max-width: 1200px) {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.orderBookContainer__MainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderBookContainer__ListContainer {
+  flex: 1;
+  &--left {
+    justify-self: flex-start;
+  }
+  &--right {
+    justify-self: flex-end;
+  }
+}

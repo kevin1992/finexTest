@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+import {createStore, applyMiddleware,compose} from 'redux';
+import thunk from 'redux-thunk';
+import {connect, Provider} from 'react-redux'
+import rootReducer from './reducers';
+import MainPage from './MainPage';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// Note: this API requires redux@>=3.1.0
+const store = createStore(
+rootReducer,
+composeEnhancers(applyMiddleware(thunk))
+);
+
+export default class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+    <Provider store={store}>
+      <MainPage/>
+    </Provider>
     );
   }
 }
 
-export default App;
+

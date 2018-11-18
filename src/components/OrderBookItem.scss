@@ -1,0 +1,21 @@
+.orderBookItem__Container {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  position: relative;
+}
+
+.orderBookItem__ItemContainer {
+  flex: 1;
+  z-index: 2;
+}
+
+.orderBookItem__ItemContainer--header span {
+  font-weight: bold;
+}
+
+.bar {
+  height: 30px;
+  position: absolute;
+  z-index: 1;
+}
